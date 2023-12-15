@@ -24,6 +24,7 @@ if (isset($_POST['delete_id'])) {
                             <th>ID</th>
                             <th>Name</th>
                             <th>Action</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,7 +40,9 @@ if (isset($_POST['delete_id'])) {
                             <td>
                                 <a href="?action=department&query=edit&id=<?php echo $row['id']; ?>" class="text-reset fs-16 px-1"> <i
                                         class="ri-settings-3-line"></i></a>
-                                <form  class ="" action="" method="post" onsubmit="return confirm('Are you sure you want to delete this department?');">
+                            </td>
+                            <td>
+                            <form  class ="" action="" method="post" onsubmit="return confirm('Are you sure you want to delete this department?');">
                                     <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
                                     <button type="submit" class="text-reset fs-16 px-1"> <i
                                         class="ri-delete-bin-2-line"></i></button>   

@@ -48,37 +48,6 @@
                 </ul>
             </div>
         </li>
-
-        <li class="side-nav-item">
-            <a data-bs-toggle="collapse" href="#sidebarLayouts" aria-expanded="false" aria-controls="sidebarLayouts" class="side-nav-link">
-                <i class="ri-layout-line"></i>
-                <span class="badge bg-warning float-end">New</span>
-                <span> Layouts </span>
-            </a>
-            <div class="collapse" id="sidebarLayouts">
-                <ul class="side-nav-second-level">
-                    <li>
-                        <a href="layouts-horizontal.html" target="_blank">Horizontal</a>
-                    </li>
-                    <li>
-                        <a href="layouts-light-sidebar.html" target="_blank">Light Sidebar</a>
-                    </li>
-                    <li>
-                        <a href="layouts-sm-sidebar.html" target="_blank">Small Sidebar</a>
-                    </li>
-                    <li>
-                        <a href="layouts-collapsed-sidebar.html" target="_blank">Collapsed Sidebar</a>
-                    </li>
-                    <li>
-                        <a href="layouts-unsticky-layout.html" target="_blank">Unsticky Layout</a>
-                    </li>
-                    <li>
-                        <a href="layouts-boxed.html" target="_blank">Boxed Layout</a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-
         <li class="side-nav-item">
             <a data-bs-toggle="collapse" href="#sidebarForms" aria-expanded="false" aria-controls="sidebarForms" class="side-nav-link">
                 <i class="ri-survey-line"></i>

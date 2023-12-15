@@ -58,7 +58,7 @@ include "model/department.php";
     }elseif($tam == 'department' && $query == 'list'){
         include './view/department/list_v1.php';
     }elseif($tam == 'department' && $query == 'edit'){
-        include './view/department/edit.php';
+        include './view/department/edit_v1.php';
     }elseif($tam == 'employee' && $query == 'add'){
         include './view/employees/add.php';
     }elseif($tam == 'employee' && $query == 'edit'){
