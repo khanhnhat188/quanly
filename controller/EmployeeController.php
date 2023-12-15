@@ -12,7 +12,6 @@ class EmployeeController
 
     public static function addEmployee($connect, $post)
     {
-
         return Employee::addEmployee($connect,$post);
     }
 

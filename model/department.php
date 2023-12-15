@@ -1,6 +1,7 @@
 <?php
 
-class Department{
+class Department
+{
     public static function getDepartment($connect)
     {
         $response = mysqli_query($connect, "SELECT * FROM `departments`");
@@ -17,31 +18,37 @@ class Department{
     public static function addDepartment($connect, $post)
     {
         $name = $post['name'];
-        $query = "INSERT INTO `employee_management`.`departments` (`name`) VALUES ('$name');";
-        $request = mysqli_query($connect, $query);
-        if($request){
-            echo '<script>window.location.href = "index.php?action=department&query=list";</script>';
+        $response = mysqli_query($connect, "SELECT * FROM departments WHERE `name` = '$name' ");
+        if (mysqli_num_rows($response) > 0) {
+            echo 'Phòng ban này đã tồn tại ở hệ thống';
+        } else {
+            $query = "INSERT INTO `employee_management`.`departments` (`name`) VALUES ('$name');";
+            $request = mysqli_query($connect, $query);
+            if ($request) {
+                echo '<script>window.location.href = "index.php?action=department&query=list";</script>';
+            }
         }
     }
 
-    public static function updateDepartment($connect, $post){
+    public static function updateDepartment($connect, $post)
+    {
 
         $id = $post['id'];
         $name = $post['name'];
         $query = "UPDATE `employee_management`.`departments` SET `name`='$name' WHERE  `id`='$id'";
         $request = mysqli_query($connect, $query);
-        if($request){
+        if ($request) {
             echo '<script>window.location.href = "index.php?action=department&query=list";</script>';
         }
     }
 
 
-    public static function deleteDepartment($connect, $id){
+    public static function deleteDepartment($connect, $id)
+    {
         $query = "DELETE FROM `employee_management`.`departments` WHERE  `id`='$id'";
         $request = mysqli_query($connect, $query);
-        if($request){
+        if ($request) {
             echo '<script>window.location.href = "index.php?action=department&query=list";</script>';
         }
     }
-    
 }

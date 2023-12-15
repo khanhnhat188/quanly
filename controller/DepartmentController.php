@@ -1,4 +1,5 @@
 <?php
+
 class DepartmentController
 {
     public static function getDepartment($connect)
@@ -23,10 +24,8 @@ class DepartmentController
     {
         return Department::deleteDepartment($connect, $id);
     }
-    public static function getDepartmentById($connect, $id)
-    {
-        return Department::getDepartmentById($connect, $id);
-    }
+   
     
 
 }
+?>

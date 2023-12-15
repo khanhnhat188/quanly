@@ -27,18 +27,24 @@ class Employee
         $district = $post['district'];
         $ward = $post['ward'];
         $fullAddress = $post['fullAddress'];
-        $query = "INSERT INTO `employee_management`.`employees` (`first_name`, `last_name`, `birthday`, `gender`, `phone`, `email`, `city`, `district`, `ward`, `full_address`) VALUES ('$firstname', '$lastname', '$birthday', '$gender', '$phone', '$email', '$city', '$district', '$ward', '$fullAddress')";
-        $request = mysqli_query($connect, $query);
-        if($request){
-            echo '<script>window.location.href = "index.php?action=employee&query=list";</script>';
+        $departments = $post['departments'];
+        $roles = $post['roles'];
+        $response = mysqli_query($connect, "SELECT * FROM employees WHERE phone='$phone' OR email='$email'");
+        if (mysqli_num_rows($response) > 0) {
+            echo 'Nhân viên này đã tồn tại ở hệ thống';
+        } else {
+            $query = "INSERT INTO `employee_management`.`employees` (`first_name`, `last_name`, `birthday`, `gender`, `phone`, `email`, `city`, `district`, `ward`, `full_address`,`departments`,`roles`) VALUES ('$firstname', '$lastname', '$birthday', '$gender', '$phone', '$email', '$city', '$district', '$ward', '$fullAddress','$departments','$roles')";
+            $request = mysqli_query($connect, $query);
+            if ($request) {
+                echo '<script>window.location.href = "index.php?action=employee&query=list";</script>';
+            } else {
+                echo "thất bại";
+            }
         }
-        else{
-            echo "thất bại";
-        }
-        
     }
 
-    public static function updateEmployee($connect, $post){
+    public static function updateEmployee($connect, $post)
+    {
         $id = $post['id'];
         $firstname = $post['firstname'];
         $lastname = $post['lastname'];
@@ -50,29 +56,25 @@ class Employee
         $district = $post['district'];
         $ward = $post['ward'];
         $fullAddress = $post['fullAddress'];
-        $query = "UPDATE `employee_management`.`employees` SET `first_name`='$firstname', `last_name`= '$lastname', `birthday`= '$birthday', `gender`= '$gender', `phone`= '$phone', `email`= '$email', `city`= '$city', `district`= '$district', `ward`= '$ward', `full_address`='$fullAddress' WHERE  `id`= '$id' ";
+        $departments = $post['departments'];
+        $roles = $post['roles'];
+        $query = "UPDATE `employee_management`.`employees` SET `first_name`='$firstname', `last_name`= '$lastname', `birthday`= '$birthday', `gender`= '$gender', `phone`= '$phone', `email`= '$email', `city`= '$city', `district`= '$district', `ward`= '$ward', `full_address`='$fullAddress', `departments`='$departments', `roles`= '$roles'  WHERE  `id`= '$id' ";
         $request = mysqli_query($connect, $query);
-        if($request){
+        if ($request) {
             echo '<script>window.location.href = "index.php?action=employee&query=list";</script>';
-        }
-        else{
+        } else {
             echo "thất bại";
         }
     }
 
-    public static function deleteEmployee($connect, $id){
+    public static function deleteEmployee($connect, $id)
+    {
         $query = "DELETE FROM `employee_management`.`employees` WHERE  `id`='$id'";
         $request = mysqli_query($connect, $query);
-        if($request){
+        if ($request) {
             echo '<script>window.location.href = "index.php?action=employee&query=list";</script>';
-        }
-        else{
+        } else {
             echo "thất bại";
         }
-        
-        
-
     }
-
-
 }

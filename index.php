@@ -3,8 +3,13 @@ require "config/connect.php";
 require "controller/DepartmentController.php";
 require "controller/EmployeeController.php";
 require "model/employees.php";
-include "model/department.php";
+require "model/department.php";
+require "model/roles.php";
+require "model/authentication.php";
+require "controller/AuthenticationController.php";
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

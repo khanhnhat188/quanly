@@ -1,107 +1,59 @@
 <?php
 require "config/connect.php";
-require "controller/EmployeeController.php";
 require "controller/DepartmentController.php";
+require "controller/EmployeeController.php";
 require "model/employees.php";
-
-
-$employee = EmployeeController::getEmployee($connect);
-
-echo json_encode($employee);
-
-//gọi hàm thêm nhân viên các hàm kia tương tự
+require "model/department.php";
+require "model/roles.php";
+require "model/authentication.php";
+require "controller/AuthenticationController.php";
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Employee</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    <title>Đăng ký</title>
 </head>
 <body>
+    <h2>Đăng ký</h2>
+    <form method="post">
+        <label for="full_name">Họ và tên:</label>
+        <input type="text" name="fullname" required><br>
 
-<h2>Add Employee</h2>
-<form method="POST" action="index.php">
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstname" required>
+        <label for="user_name">Tên người dùng:</label>
+        <input type="text" name="username" required><br>
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastname" required>
+        <label for="password">Mật khẩu:</label>
+        <input  name="password" required><br>
 
-    <label for="dob">Date of Birth:</label>
-    <input type="date" id="dob" name="birthday" required>
+        <label for="image_url">URL ảnh đại diện:</label>
+        <input type="text" name="avatar" required><br>
 
-    <label for="gender">Gender:</label>
-    <select id="gender" name="gender" required>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Other">Other</option>
-    </select>
+        <input type="submit" value="Đăng ký" name="register">
+    </form>
+    <div>
+        <h2>Đăng nhập</h2>
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <label for="login_user_name">Tên người dùng:</label>
+            <input type="text" name="username" required><br>
 
-    <label for="phoneNumber">Phone Number:</label>
-    <input type="tel" id="phoneNumber" name="phone" required>
+            <label for="login_password">Mật khẩu:</label>
+            <input  name="password"  required><br>
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="city">City:</label>
-    <input type="text" id="city" name="city" required>
-
-    <label for="district">District:</label>
-    <input type="text" id="district" name="district" required>
-
-    <label for="ward">Ward:</label>
-    <input type="text" id="ward" name="ward" required>
-
-    <label for="fullAddress">full Address:</label>
-    <input type="text" id="fullAddress" name="fullAddress" required>
-
-    <button type="submit"  name="add">Submit</button>
-</form>
-<?php
-if(isset($_POST['add'])){
-    
-    EmployeeController::addEmployee($connect,$_POST);
-    // echo "them thanh cong";
-}
-?>
-
+            <input type="submit" name="signIn" value="Đăng nhập">
+        </form>
+    </div>
 </body>
 </html>
 
-
-
-
-
-
+<?php
+if(isset($_POST['register'])){
+    AuthenticationController::register($connect,$_POST);
+}
+if(isset($_POST['signIn'])){
+    Authentication::signIn($connect,$_POST);
+}
