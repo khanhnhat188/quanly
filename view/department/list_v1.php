@@ -51,8 +51,8 @@ if (isset($_POST['delete_id'])) {
                         </tr>
                     <?php
                         $sequentialId++;
-                        endforeach; ?>
-                        ?>
+                        endforeach; 
+                    ?>
                     </tbody>
                 </table>
             </div> <!-- end table-responsive-->

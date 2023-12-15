@@ -31,7 +31,8 @@ if (isset($_POST['delete_id'])) {
             
             <?php 
             $sequentialId = 1;
-            foreach ($employees as $row): ?>
+            foreach ($employees as $row): 
+            ?>
                 <tr>
                     <td><?php echo $sequentialId; ?></td>
                     <td><?php echo $row['first_name']; ?></td>

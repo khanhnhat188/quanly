@@ -75,16 +75,10 @@
             <div class="collapse" id="sidebarTables">
                 <ul class="side-nav-second-level">
                     <li>
-                        <a href="tables-basic.html">Basic Tables</a>
+                        <a href="index.php?action=employee&query=add">Thêm nhân viên</a>
                     </li>
                     <li>
-                        <a href="tables-datatable.html">Data Tables</a>
-                    </li>
-                    <li>
-                        <a href="tables-editable.html">Editable Tables</a>
-                    </li>
-                    <li>
-                        <a href="tables-responsive.html">Responsive Table</a>
+                        <a href="index.php?action=employee&query=list">Danh sách nhân viên</a>
                     </li>
                 </ul>
             </div>

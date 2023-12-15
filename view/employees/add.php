@@ -43,7 +43,7 @@ if(isset($_POST['add'])){
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="phoneNumber">Điện thoại</label>
-                                    <input type="text" name="phone" class="form-control form-control-lg"
+                                    <input type="tel" name="phone" class="form-control form-control-lg"
                                         placeholder="Điện thoại" required />
                                 </div>
 

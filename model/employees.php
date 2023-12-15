@@ -30,7 +30,7 @@ class Employee
         $query = "INSERT INTO `employee_management`.`employees` (`first_name`, `last_name`, `birthday`, `gender`, `phone`, `email`, `city`, `district`, `ward`, `full_address`) VALUES ('$firstname', '$lastname', '$birthday', '$gender', '$phone', '$email', '$city', '$district', '$ward', '$fullAddress')";
         $request = mysqli_query($connect, $query);
         if($request){
-            echo "thêm thành công";
+            echo '<script>window.location.href = "index.php?action=employee&query=list";</script>';
         }
         else{
             echo "thất bại";
