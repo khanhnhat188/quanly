@@ -9,7 +9,7 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="header-title">Basic Data Table</h4>
+                <h4 class="header-title">Danh sách nhân viên</h4>
                 <p class="text-muted mb-0">
                     DataTables has most features enabled by default, so all you need to do to use it
                     with your own tables is to call the construction
