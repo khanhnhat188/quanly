@@ -20,16 +20,15 @@
                 </p>
             </div>
             <div class="card-body">
-                <table id="basic-datatable" class="table table-striped dt-responsive">
+                <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">
                     <thead>
                         <tr>
+                            <th>Thứ tự</th>
                             <th>Họ tên</th>
-                            <th>Ngày sinh</th>
                             <th>Giới tính</th>
                             <th>Điện thoại</th>
-                            <th>Email</th>
-                            <th>Địa chỉ</th>
-                            <th>Thao tác</th>
+                            <th>Chỉnh sửa</th>
+                            <th>Xem thông tin</th>
                             <th>Xóa</th>
                         </tr>
                     </thead>
@@ -41,15 +40,15 @@
                             foreach ($employees as $row): 
                         ?>
                         <tr>
+                            <td><?php echo $sequentialId; ?></td>
                             <td><?php echo $row['last_name']." ".$row['first_name']; ?></td>
-                            <td><?php echo $row['birthday']; ?></td>
                             <td><?php echo $row['gender']; ?></td>
                             <td><?php echo $row['phone']; ?></td>
-                            <td><?php echo $row['email']; ?></td>
-                            <td><?php echo $row['full_address'].", ".$row['ward'].", ".$row['district'].", ".$row['city']; ?></td>
                             <td>
-                                <a href="?action=employee&query=edit&id=<?php echo $row['id']; ?>" class="ri-settings-3-line"></a>
+                                <a href="?action=employee&query=edit&id=<?php echo $row['id']; ?>" class=" ri-pencil-line"></a>
                             </td>
+                            <td>
+                                <a href="?action=employee&query=detail&id=<?php echo $row['id']; ?>" class=" ri-eye-line"></a>
                             <td>
                                 <form  class ="" action="" method="post" onsubmit="return confirm('Are you sure you want to delete this department?');">
                                     <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">

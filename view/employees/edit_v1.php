@@ -50,19 +50,21 @@
                         <div class="mb-3 col-md-4">
                             <label for="inputState" class="form-label">Giới tính</label>
                             <select id="gender" for="gender" class="form-select" name="gender">
-                                    <option value="Nam" <?php echo ($gender == 'Nam') ? 'selected' : ''; ?>>Nam</option>
-                                    <option value="Nữ" <?php echo ($gender == 'Nữ') ? 'selected' : ''; ?>>Nữ</option>
-                                    <option value="Khác" <?php echo ($gender == 'Khác') ? 'selected' : ''; ?>>Khác </option> 
+                                <option value="Nam" <?php echo ($gender == 'Nam') ? 'selected' : ''; ?>>Nam</option>
+                                <option value="Nữ" <?php echo ($gender == 'Nữ') ? 'selected' : ''; ?>>Nữ</option>
+                                <option value="Khác" <?php echo ($gender == 'Khác') ? 'selected' : ''; ?>>Khác </option>
                             </select>
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="inputEmail4" class="form-label">Điện thoại</label>
-                            <input type="text" name="phone" class="form-control" id="inputEmail4" value="<?php echo $phone; ?>">
+                            <input type="text" name="phone" class="form-control" id="inputEmail4"
+                                value="<?php echo $phone; ?>">
                         </div>
 
                         <div class="mb-3 col-md-6">
                             <label for="inputEmail4" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="inputEmail4" value="<?php echo $email; ?>">
+                            <input type="email" name="email" class="form-control" id="inputEmail4"
+                                value="<?php echo $email; ?>">
                         </div>
 
                         <div class="mb-3 col-md-4">
@@ -85,10 +87,45 @@
 
                         <div class="mb-3 col-md-12">
                             <label for="fullAddress" class="form-label">Địa chỉ</label>
-                            <input type="text" name="fullAddress" class="form-control" id="inputEmail4" value="<?php echo $fullAddress; ?>">
+                            <input type="text" name="fullAddress" class="form-control" id="inputEmail4"
+                                value="<?php echo $fullAddress; ?>">
                         </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="departments" class="form-label">Phòng ban</label>
+                            <select id="departments" class="form-select" name="departments">
+                                <?php
+                                $departments = DepartmentController::getDepartment($connect);
+
+                                foreach ($departments as $row) {
+                                    $id = $row['id'];
+                                    $name = $row['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // Đặt mỗi option trong vòng lặp để lặp qua tất cả các phòng ban
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3 col-md-4">
+                            <label for="roles" class="form-label">Chức vụ</label>
+                            <select id="roles" class="form-select" name="roles">
+                                <?php
+                                $roles = RolesController::getRoles($connect);
+
+                                foreach ($roles as $row) {
+                                    $id = $row['id'];
+                                    $name = $row['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                }
+                            ?>
+                            
+                            </select>
+                        </div>
+
+
                     </div>
-                    <button type="submit" name="update" class="btn btn-primary">Cập Nhật thông tin</button>
+                    <button type="submit" name="update" class="btn btn-primary" class="ri-save-line me-1 fs-16 lh-1">Cập Nhật thông tin</button>
                 </form>
                 <?php
                                 }

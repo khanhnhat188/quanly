@@ -1,4 +1,9 @@
 <?php
+//Get data from database
+$departments = DepartmentController::getDepartment($connect);
+//Get data from database roles
+$roles = RolesController::getRoles($connect);
+
 if(isset($_POST['add'])){
     
     EmployeeController::addEmployee($connect,$_POST);
@@ -21,8 +26,7 @@ if(isset($_POST['add'])){
                     <div class="row g-2">
                         <div class="mb-3 col-md-6">
                             <label for="inputEmail4" class="form-label">Tên</label>
-                            <input type="text" name="firstname" class="form-control" id="inputEmail4"
-                                placeholder="Tên">
+                            <input type="text" name="firstname" class="form-control" id="inputEmail4" placeholder="Tên">
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="inputEmail4" class="form-label">Họ</label>
@@ -43,14 +47,15 @@ if(isset($_POST['add'])){
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="inputEmail4" class="form-label">Điện thoại</label>
-                            <input type="text" name="phone" class="form-control" id="inputEmail4" placeholder="Điện thoại">
+                            <input type="text" name="phone" class="form-control" id="inputEmail4"
+                                placeholder="Điện thoại">
                         </div>
 
                         <div class="mb-3 col-md-6">
                             <label for="inputEmail4" class="form-label">Email</label>
                             <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
                         </div>
-                        
+
                         <div class="mb-3 col-md-4">
                             <label for="tinh_thanhpho" class="form-label">Tỉnh, Thành phố</label>
                             <select id="city" class="form-select" name="city">
@@ -71,8 +76,41 @@ if(isset($_POST['add'])){
 
                         <div class="mb-3 col-md-12">
                             <label for="fullAddress" class="form-label">Địa chỉ</label>
-                            <input type="text" name="fullAddress" class="form-control" id="inputEmail4" placeholder="256 Nguyễn Văn Cừ">
+                            <input type="text" name="fullAddress" class="form-control" id="inputEmail4"
+                                placeholder="256 Nguyễn Văn Cừ">
                         </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="department" class="form-label">Phòng ban</label>
+                            <select id="departments" class="form-select" name="departments">
+                                <option value="departments">Chọn</option>
+
+                                <?php
+                                    foreach ($departments as $row): 
+                                ?>
+                                    <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                <?php
+                                          
+                                    endforeach; 
+                                ?>
+
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="roles" class="form-label">Chức vụ</label>
+                            <select id="roles" class="form-select" name="roles">
+                                <option value="">Chọn</option>
+                                <?php
+                                    foreach ($roles as $row): 
+                                ?>
+                                    <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                <?php
+                                          
+                                    endforeach; 
+                                ?>
+                            </select>
+                        </div>
+
                     </div>
                     <button type="submit" name="add" class="btn btn-primary">Thêm thông tin</button>
                 </form>

@@ -2,6 +2,7 @@
 require "config/connect.php";
 require "controller/DepartmentController.php";
 require "controller/EmployeeController.php";
+require "controller/RolesController.php";
 require "model/employees.php";
 require "model/department.php";
 require "model/roles.php";
@@ -17,7 +18,7 @@ require "controller/AuthenticationController.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <tile>Quản lý nhân sự</tile>
+
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
@@ -48,19 +49,19 @@ require "controller/AuthenticationController.php";
     <!-- Icons css -->
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./css/style.css">
-    <title>Posts</title>
+    <title>Quản lý nhân sự</title>
 
 </head>
 
 <body>
 
-        <?php
+    <?php
     include "sidebar.php";
     ?>
-        <div class="content-page">
-            <div class="content">
-                <div class="container-fluid">
-                    <?php
+    <div class="content-page">
+        <div class="content">
+            <div class="container-fluid">
+                <?php
     if(isset($_GET['action']) && isset($_GET['query'])){
         $tam = $_GET['action'];
         $query = $_GET['query'];
@@ -80,56 +81,58 @@ require "controller/AuthenticationController.php";
         include './view/employees/edit_v1.php';
     }elseif($tam == 'employee' && $query == 'list'){
         include './view/employees/list_v1.php';
+    }elseif($tam == 'employee' && $query == 'detail'){
+        include './view/employees/detail.php';
     }else{
         include 'home.php';
     }
     
 ?>
-                </div>
             </div>
         </div>
-        <?php
+    </div>
+    <?php
     include "footer.php";
     ?>
 
-        <!-- Vendor js -->
-        <script src="assets/js/vendor.min.js"></script>
-        <!-- Datatable Demo Aapp js -->
-        <script src="assets/js/pages/datatable.init.js"></script>
-        <!-- Daterangepicker js -->
-        <script src="assets/vendor/daterangepicker/moment.min.js"></script>
-        <script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <!-- Vendor js -->
+    <script src="assets/js/vendor.min.js"></script>
+    <!-- Datatable Demo Aapp js -->
+    <script src="assets/js/pages/datatable.init.js"></script>
+    <!-- Daterangepicker js -->
+    <script src="assets/vendor/daterangepicker/moment.min.js"></script>
+    <script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
 
-        <!-- Apex Charts js -->
-        <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <!-- Apex Charts js -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
 
-        <!-- Vector Map js -->
-        <script src="assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js">
-        </script>
-        <script src="assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js">
-        </script>
+    <!-- Vector Map js -->
+    <script src="assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js">
+    </script>
+    <script src="assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js">
+    </script>
 
-        <!-- Dashboard App js -->
-        <script src="assets/js/pages/dashboard.js"></script>
+    <!-- Dashboard App js -->
+    <script src="assets/js/pages/dashboard.js"></script>
 
-        <!-- Datatables js -->
-        <script src="assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-        <script src="assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
-        <script src="assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
-        <script src="assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-        <script src="assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
-        <script src="assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
-        <script src="assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
-        <script src="assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
-        <script src="assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-        <script src="assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
+    <!-- Datatables js -->
+    <script src="assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js"></script>
+    <script src="assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
 
 
-        <!-- App js -->
-        <script src="assets/js/app.min.js"></script>
+    <!-- App js -->
+    <script src="assets/js/app.min.js"></script>
 
 </body>
 
