@@ -7,7 +7,6 @@ require "model/department.php";
 require "model/roles.php";
 require "model/authentication.php";
 require "controller/AuthenticationController.php";
-
 ?>
 
 
