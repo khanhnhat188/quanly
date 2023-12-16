@@ -9,7 +9,6 @@ require "model/authentication.php";
 require "controller/AuthenticationController.php";
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
