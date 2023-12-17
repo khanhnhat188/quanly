@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th12 17, 2023 lúc 11:20 AM
+-- Thời gian đã tạo: Th12 17, 2023 lúc 02:39 PM
 -- Phiên bản máy phục vụ: 8.0.31
 -- Phiên bản PHP: 8.0.26
 
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '',
   `image_url` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
@@ -183,7 +183,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`user_id`, `full_name`, `user_name`, `password`, `image_url`) VALUES
 (3, 'Quang Thiện', 'admin', '$2y$10$JwPxu2xaJ7.2yluB9xgAj.epMy3QBPsFko.eJV/qOjfgfVGcXv5fa', 'a.jpg'),
-(5, 'Khánh Nhật', 'khanhnhat188', '$2y$10$H0xa5wzUm3MG1B/MTL8v2.aQZB1sCzsSzz9qWRgDaZS/z/f..UsiC', '');
+(5, 'Khánh Nhật', 'khanhnhat188', '$2y$10$H0xa5wzUm3MG1B/MTL8v2.aQZB1sCzsSzz9qWRgDaZS/z/f..UsiC', 'assets/avatar/1702814423.png'),
+(6, 'Tài khoản mãu', 'demo', '$2y$10$44Iq4UaOp7Ymce7nZwnsw.QAQj4iGf.7QK4LMWQov/Wyg3nPectYG', 'assets/avatar/1702823891.jpg');
 
 --
 -- Các ràng buộc cho các bảng đã đổ
