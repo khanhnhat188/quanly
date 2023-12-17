@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1:3306
--- Thời gian đã tạo: Th12 16, 2023 lúc 01:35 PM
+-- Thời gian đã tạo: Th12 17, 2023 lúc 11:20 AM
 -- Phiên bản máy phục vụ: 8.0.31
 -- Phiên bản PHP: 8.0.26
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `departments`;
 CREATE TABLE IF NOT EXISTS `departments` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '0',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
@@ -58,16 +58,16 @@ INSERT INTO `departments` (`id`, `name`) VALUES
 DROP TABLE IF EXISTS `employees`;
 CREATE TABLE IF NOT EXISTS `employees` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
-  `last_name` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
-  `birthday` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
-  `gender` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
-  `phone` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
-  `email` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
-  `city` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
-  `district` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
-  `ward` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
-  `full_address` varchar(50) COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `first_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `last_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `birthday` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `gender` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `phone` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `city` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `district` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `ward` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
+  `full_address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci DEFAULT NULL,
   `departments` int DEFAULT NULL,
   `roles` int DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
@@ -141,7 +141,7 @@ INSERT INTO `employees` (`id`, `first_name`, `last_name`, `birthday`, `gender`, 
 DROP TABLE IF EXISTS `roles`;
 CREATE TABLE IF NOT EXISTS `roles` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '0',
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
@@ -164,41 +164,26 @@ INSERT INTO `roles` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `salary`
---
-
-DROP TABLE IF EXISTS `salary`;
-CREATE TABLE IF NOT EXISTS `salary` (
-  `salary_id` int NOT NULL AUTO_INCREMENT,
-  `employee_id` int NOT NULL DEFAULT '0',
-  `salary` decimal(20,6) NOT NULL DEFAULT '0.000000',
-  `start_date` date NOT NULL,
-  PRIMARY KEY (`salary_id`),
-  KEY `FK_employee_salary` (`employee_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
-
--- --------------------------------------------------------
-
---
 -- Cấu trúc bảng cho bảng `users`
 --
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `user_id` int NOT NULL AUTO_INCREMENT,
-  `full_name` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '',
-  `user_name` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '',
-  `password` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '',
-  `image_url` varchar(50) COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '',
+  `full_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '',
+  `user_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '',
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '',
+  `image_url` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
 INSERT INTO `users` (`user_id`, `full_name`, `user_name`, `password`, `image_url`) VALUES
-(3, 'Quang Thiện', 'admin', '$2y$10$JwPxu2xaJ7.2yluB9xgAj.epMy3QBPsFko.eJV/qOjfgfVGcXv5fa', 'a.jpg');
+(3, 'Quang Thiện', 'admin', '$2y$10$JwPxu2xaJ7.2yluB9xgAj.epMy3QBPsFko.eJV/qOjfgfVGcXv5fa', 'a.jpg'),
+(5, 'Khánh Nhật', 'khanhnhat188', '$2y$10$H0xa5wzUm3MG1B/MTL8v2.aQZB1sCzsSzz9qWRgDaZS/z/f..UsiC', '');
 
 --
 -- Các ràng buộc cho các bảng đã đổ
@@ -210,12 +195,6 @@ INSERT INTO `users` (`user_id`, `full_name`, `user_name`, `password`, `image_url
 ALTER TABLE `employees`
   ADD CONSTRAINT `FK_departments` FOREIGN KEY (`departments`) REFERENCES `departments` (`id`),
   ADD CONSTRAINT `FK_roles` FOREIGN KEY (`roles`) REFERENCES `roles` (`id`);
-
---
--- Các ràng buộc cho bảng `salary`
---
-ALTER TABLE `salary`
-  ADD CONSTRAINT `FK_employee_salary` FOREIGN KEY (`employee_id`) REFERENCES `employees` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
