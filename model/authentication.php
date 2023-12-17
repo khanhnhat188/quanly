@@ -37,7 +37,7 @@ class Authentication
 
                 // Chờ 1 giây trước khi chuyển hướng
                 sleep(1);
-
+                echo '<script>window.location.href = "login.php";</script>';
                 //chuyển trang thêm dưới này 
             } else {
                 echo '<script type="text/javascript">
@@ -59,13 +59,15 @@ class Authentication
 
         $username = $post['username'];
         $password = $post['password'];
-        $query = ("SELECT `password` FROM `employee_management`.`users` WHERE `user_name` = '$username'");
+        $query = ("SELECT * FROM `employee_management`.`users` WHERE `user_name` = '$username'");
         $request = mysqli_query($connect, $query);
         if (mysqli_num_rows($request) > 0) {
-            $data = mysqli_fetch_array($request);
-            $hashpass = $data[0];
+            $data [] = mysqli_fetch_array($request);
+            $hashpass = $data[0]['password'];
+            $userId = $data[0]['user_id'];
             if ($hashpass !== null && password_verify($password, $hashpass)) {
-                setcookie('user', $username . $hashpass, time() + 3600, "/");
+                // setcookie('user', $username . $hashpass, time() + 3600, "/");
+                $_SESSION['userId'] = $userId;
                 echo '<script type="text/javascript">
                 Swal.fire({
                     title: "Đăng nhập thành công",
@@ -82,7 +84,7 @@ class Authentication
                 // Chờ 1 giây trước khi chuyển hướng
                 sleep(1);
 
-                //chuyển trang thêm dưới này 
+                echo '<script>window.location.href = "index.php";</script>';
 
             } else {
                 echo '<script type="text/javascript">
@@ -138,7 +140,7 @@ class Authentication
                     // Chờ 1 giây trước khi chuyển hướng
                     sleep(1);
 
-                    //chuyển trang thêm dưới này 
+                    echo '<script>window.location.href = "index.php";</script>';
                 }
             } else {
                 echo '<script type="text/javascript">
@@ -153,5 +155,18 @@ class Authentication
                     </script>';
             }
         }
+    }
+
+    public static function getUser($connect,$userId)
+    {
+        $response = mysqli_query($connect, "SELECT * FROM `employee_management`.`users` where `user_id`= '$userId'");
+        if ($response) {
+            if (mysqli_num_rows($response) > 0) {
+                while ($row = mysqli_fetch_array($response)) {
+                    $data[] = $row;
+                }
+            }
+        }
+        return $data;
     }
 }

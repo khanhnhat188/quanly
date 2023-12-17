@@ -11,4 +11,8 @@ class AuthenticationController{
     public static function uploadAvatar($connect,$post){
         return Authentication::uploadAvatar($connect,$post);
     }
+
+    public static function getUser($connect,$userId){
+        return Authentication::getUser($connect,$userId);
+    }
 }

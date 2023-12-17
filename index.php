@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['userId'])) {
+    header("Location: index.php");
+}
+
+?>
+<?php
 require "config/connect.php";
 require "controller/DepartmentController.php";
 require "controller/EmployeeController.php";
@@ -89,7 +96,9 @@ require "controller/AuthenticationController.php";
         include './view/employees/detail.php';
     //Tài khoản
     }elseif($tam == 'account' && $query == 'update'){
-        include './update_v1.php';
+        include './update_v2.php';
+    }elseif($tam == 'account' && $query == 'logout'){
+        include './logout.php';
     }else{
         include 'home.php';
     }

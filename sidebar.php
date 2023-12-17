@@ -77,8 +77,11 @@
                 <div class="collapse" id="sidebarExtendedUI">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="index.php?action=account&query=update">Thông tin tài khoản</a>
+                            <a href="index.php?action=account&query=update&userId=<?php echo $_SESSION['userId'] ?>">Cập nhật thông tin</a>
                         </li> 
+                        <li>
+                            <a href="index.php?action=account&query=logout">Đăng xuất</a>
+                        </li>
                     </ul>
                 </div>
             </li>
