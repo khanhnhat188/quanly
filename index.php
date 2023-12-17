@@ -71,17 +71,17 @@ require "controller/AuthenticationController.php";
         $query = '';
     }
     if($tam == 'department' && $query == 'add'){
-        include './view/department/add_v1.php';
+        include './view/department/add.php';
     }elseif($tam == 'department' && $query == 'list'){
-        include './view/department/list_v1.php';
+        include './view/department/list.php';
     }elseif($tam == 'department' && $query == 'edit'){
-        include './view/department/edit_v1.php';
+        include './view/department/edit.php';
     }elseif($tam == 'employee' && $query == 'add'){
-        include './view/employees/add_v1.php';
+        include './view/employees/add.php';
     }elseif($tam == 'employee' && $query == 'edit'){
-        include './view/employees/edit_v1.php';
+        include './view/employees/edit.php';
     }elseif($tam == 'employee' && $query == 'list'){
-        include './view/employees/list_v1.php';
+        include './view/employees/list.php';
     }elseif($tam == 'employee' && $query == 'detail'){
         include './view/employees/detail.php';
     //Profile
@@ -89,7 +89,7 @@ require "controller/AuthenticationController.php";
         include './profile.php';
     //Tài khoản
     }elseif($tam == 'account' && $query == 'update'){
-        include './update_v2.php';
+        include './update.php';
     }elseif($tam == 'account' && $query == 'logout'){
         include './logout.php';
     }else{

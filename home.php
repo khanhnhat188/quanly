@@ -4,11 +4,11 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="mb-4 mt-4 text-center">
-                        <h3 class="">CHÀO MỪNG ĐẾN VỚI TRANG QUẢN TRỊ NHÂN VIÊN <span class="text-primary">NEWMEN</span></h3>
-                       
+                        <h3 class="">CHÀO MỪNG ĐẾN VỚI TRANG QUẢN TRỊ NHÂN VIÊN <span class="text-primary">NEWMEN</span>
+                        </h3>
                     </div>
-                </div><!-- end col -->
-            </div><!-- end row -->
+                </div>
+            </div>
             <div class="card">
                 <div class="card-body">
 

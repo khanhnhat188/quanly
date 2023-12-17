@@ -54,7 +54,7 @@ require "controller/AuthenticationController.php";
                                         <!-- form -->
                                         <form  method="POST" action="#">
                                             <div class="mb-3">
-                                                <label for="fullname" class="form-label">Full Name</label>
+                                                <label for="fullname" class="form-label">Họ và tên</label>
                                                 <input class="form-control" type="text" id="fullname"
                                                     placeholder="Enter your name" required="" name="fullname">
                                             </div>
@@ -64,7 +64,7 @@ require "controller/AuthenticationController.php";
                                                     placeholder="Enter your username" name="username">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="password" class="form-label">Password</label>
+                                                <label for="password" class="form-label">Mật khẩu</label>
                                                 <input class="form-control" type="password" required="" id="password"
                                                     placeholder="Enter your password" name="password">
                                             </div>
@@ -78,8 +78,7 @@ require "controller/AuthenticationController.php";
                                                 </div>
                                             </div> -->
                                             <div class="mb-0 d-grid text-center">
-                                                <button class="btn btn-primary fw-semibold" type="submit" name="register">Sign
-                                                    Up</button>
+                                                <button class="btn btn-primary fw-semibold" type="submit" name="register">Đăng ký</button>
                                             </div>
 
                                             <!-- <div class="text-center mt-4">

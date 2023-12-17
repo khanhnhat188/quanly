@@ -1,18 +1,15 @@
 <?php
-$id = $_GET['id'];
-$employees = EmployeeController::getEmployee($connect);
-
+    $id = $_GET['id'];
+    $employees = EmployeeController::getEmployee($connect);
 ?>
-
-<section class="bg-image">
-    <div class="mask d-flex align-items-center gradient-custom-3">
-        <div class="container">
-            <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                    <div class="card">
-                        <div class="card-body p-5">
-                            <h2 class="text-uppercase text-center mb-5">Thông tin</h2>
-                            <?php
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="header-title">Chỉnh sửa nhân viên</h4>
+            </div>
+            <div class="card-body">
+                <?php
                             foreach ($employees as $row) {
                                 if ($row['id'] == $id) {
                                     $firstname = $row['first_name'];
@@ -27,111 +24,114 @@ $employees = EmployeeController::getEmployee($connect);
                                     $fullAddress = $row['full_address'];
                             ?>
 
-                            <form method="POST" action="">
-                                <div class="form-outline mb-4">
-                                    <input type="hidden" name="id" value="<?php echo $id; ?>" />
-                                </div>
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="ten">First Name:</label>
-                                    <input type="text" name="firstname" class="form-control form-control-lg"
-                                        value="<?php echo $firstname; ?>" placeholder="" required />
-                                </div>
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="ten">Last Name:</label>
-                                    <input type="text" name="lastname" class="form-control form-control-lg"
-                                        value="<?php echo $lastname; ?>" placeholder="" required />
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="ten">Date of Birth:</label>
-                                    <input type="date" name="birthday" class="form-control form-control-lg"
-                                        value="<?php echo $birthday; ?>" placeholder="" required />
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="gender">Gender</label>
-                                    <select id="gender" name="gender" required>
-                                        <option value="Male" <?php echo ($gender == 'Male') ? 'selected' : ''; ?>>Male
-                                        </option>
-                                        <option value="Female" <?php echo ($gender == 'Female') ? 'selected' : ''; ?>>
-                                            Female</option>
-                                        <option value="Other" <?php echo ($gender == 'Other') ? 'selected' : ''; ?>>
-                                            Other</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="phoneNumber">Điện thoại</label>
-                                    <input type="text" name="phone" class="form-control form-control-lg"
-                                        value="<?php echo $phone; ?>" placeholder="Điện thoại" required />
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="email">Email</label>
-                                    <input type="email" name="email" class="form-control form-control-lg"
-                                        value="<?php echo $email; ?>" placeholder="Email" required />
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="tinh_thanhpho">Tỉnh/Thành phố</label>
-                                    <select name="city" id="city" class="form-control form-control-lg" required>
-                                        <?php foreach ($cities as $cityOption): ?>
-                                        <option value="<?php echo $cityOption['code']; ?>"
-                                            <?php echo ($city == $cityOption['code']) ? 'selected' : ''; ?>>
-                                            <?php echo $cityOption['name']; ?>
-                                        </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="huyen">Huyện</label>
-                                    <select name="district" id="district" class="form-control form-control-lg"
-                                        required>
-                                        <?php foreach ($districts as $districtOption): ?>
-                                        <option value="<?php echo $districtOption['code']; ?>"
-                                            <?php echo ($district == $districtOption['code']) ? 'selected' : ''; ?>>
-                                            <?php echo $districtOption['name']; ?>
-                                        </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="xa">Xã</label>
-                                    <select name="ward" id="ward" class="form-control form-control-lg" required>
-                                        <?php foreach ($wards as $wardOption): ?>
-                                        <option value="<?php echo $wardOption['code']; ?>"
-                                            <?php echo ($ward == $wardOption['code']) ? 'selected' : ''; ?>>
-                                            <?php echo $wardOption['name']; ?>
-                                        </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="fullAddress">Ấp, Khu Vực</label>
-                                    <input type="text" name="fullAddress" class="form-control form-control-lg"
-                                       value = "<?php echo $fullAddress; ?>" placeholder="Ấp, Khu Vực" required />
-                                </div>
-
-                                <div class="d-flex justify-content-center">
-                                    <button type="submit" name="update"
-                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Cập nhật thông
-                                        tin</button>
-                                </div>
-                            </form>
-                            <?php
-                                }
-                            }
-                            ?>
+                <form method="POST" action="">
+                    <div class="row g-2">
+                        <input type="hidden" name="id" class="form-control" id="inputEmail4" value="<?php echo $id; ?>">
+                        <div class="mb-3 col-md-6">
+                            <label for="inputEmail4" class="form-label">Tên</label>
+                            <input type="text" name="firstname" class="form-control" id="inputEmail4"
+                                value="<?php echo $firstname; ?>">
                         </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="inputEmail4" class="form-label">Họ</label>
+                            <input type="text" name="lastname" class="form-control" id="inputEmail4"
+                                value="<?php echo $lastname; ?>">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="inputEmail4" class="form-label">Ngày sinh</label>
+                            <input type="date" name="birthday" class="form-control" id="inputEmail4"
+                                value="<?php echo $birthday; ?>" placeholder="" required />
+
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="inputState" class="form-label">Giới tính</label>
+                            <select id="gender" for="gender" class="form-select" name="gender">
+                                <option value="Nam" <?php echo ($gender == 'Nam') ? 'selected' : ''; ?>>Nam</option>
+                                <option value="Nữ" <?php echo ($gender == 'Nữ') ? 'selected' : ''; ?>>Nữ</option>
+                                <option value="Khác" <?php echo ($gender == 'Khác') ? 'selected' : ''; ?>>Khác </option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="inputEmail4" class="form-label">Điện thoại</label>
+                            <input type="text" name="phone" class="form-control" id="inputEmail4"
+                                value="<?php echo $phone; ?>">
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="inputEmail4"
+                                value="<?php echo $email; ?>">
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="tinh_thanhpho" class="form-label">Tỉnh, Thành phố</label>
+                            <select id="city" class="form-select" name="city">
+                            </select>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="huyen" class="form-label">Quận, Huyện</label>
+                            <select id="district" class="form-select" name="district">
+                            </select>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="xa" class="form-label">Xã, Phường, Thị trấn</label>
+                            <select id="ward" class="form-select" name="ward">
+                            </select>
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                            <label for="fullAddress" class="form-label">Địa chỉ</label>
+                            <input type="text" name="fullAddress" class="form-control" id="inputEmail4"
+                                value="<?php echo $fullAddress; ?>">
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="departments" class="form-label">Phòng ban</label>
+                            <select id="departments" class="form-select" name="departments">
+                                <?php
+                                $departments = DepartmentController::getDepartment($connect);
+
+                                foreach ($departments as $row) {
+                                    $id = $row['id'];
+                                    $name = $row['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                    // Đặt mỗi option trong vòng lặp để lặp qua tất cả các phòng ban
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3 col-md-4">
+                            <label for="roles" class="form-label">Chức vụ</label>
+                            <select id="roles" class="form-select" name="roles">
+                                <?php
+                                $roles = RolesController::getRoles($connect);
+
+                                foreach ($roles as $row) {
+                                    $id = $row['id'];
+                                    $name = $row['name'];
+                                    echo "<option value='$id'>$name</option>";
+                                }
+                            ?>
+                            
+                            </select>
+                        </div>
+
+
                     </div>
-                </div>
+                    <button type="submit" name="update" class="btn btn-primary" class="ri-save-line me-1 fs-16 lh-1">Cập Nhật thông tin</button>
+                </form>
+                <?php
+                                }
+                            }  
+                ?>
+
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <?php
 if (isset($_POST['update'])) {
@@ -139,8 +139,6 @@ if (isset($_POST['update'])) {
     EmployeeController::updateEmployee($connect, $post);
 }
 ?>
-
-
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 

@@ -7,41 +7,52 @@ if (isset($_POST['delete_id'])) {
 }
 
 ?>
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="header-title">DANH SÁCH PHÒNG BAN</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive-sm">
+                <table class="table table-striped table-centered mb-0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên phòng ban</th>
+                            <th>Chỉnh sửa</th>
+                            <th>Xóa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php 
+                        $sequentialId = 1;
+                        foreach ($departments as $row): 
+                    ?>
+                        <tr>
+                            <td><?php echo $sequentialId; ?></td>
+                            <td class="table-user">
+                                <?php echo $row['name']; ?>
+                            </td>
+                            <td>
+                                <a href="?action=department&query=edit&id=<?php echo $row['id']; ?>" class="text-reset fs-16 px-1"> <i
+                                        class="ri-settings-3-line"></i></a>
+                            </td>
+                            <td>
+                            <form  class ="" action="" method="post" onsubmit="return confirm('Are you sure you want to delete this department?');">
+                                    <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
+                                    <button type="submit" class="text-reset fs-16 px-1"> <i
+                                        class="ri-delete-bin-2-line"></i></button>   
+                                </form>
+                            </td>
+                        </tr>
+                    <?php
+                        $sequentialId++;
+                        endforeach; 
+                    ?>
+                    </tbody>
+                </table>
+            </div> <!-- end table-responsive-->
 
-<div class="container">
-    <a href="?action=department&query=add" class="btn btn-primary mb-3"> Add Department</a>
-    <a href="?employee=add" class="btn btn-primary mb-3"> Add Employee</a>
-    <a href="index.php" class="btn btn-primary mb-3"> Home</a>
-    <h2>Department List</h2>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Phòng ban</th>
-                <th>Modify</th>
-                <th>Remove</th>
-            </tr>
-        </thead>
-        <tbody>
-            
-            <?php 
-                $sequentialId = 1;
-            foreach ($departments as $row): ?>
-                <tr>
-                    <td><?php echo $sequentialId; ?></td>
-                    <td><?php echo $row['name']; ?></td>
-                    <td><a href="?action=department&query=edit&id=<?php echo $row['id']; ?>" class="btn btn-success btn-sm">Edit</a></td>
-                    <td>
-                        <!-- Form for Delete Button -->
-                        <form action="" method="post" onsubmit="return confirm('Are you sure you want to delete this department?');">
-                            <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            <?php 
-                $sequentialId++;
-                endforeach; ?>
-        </tbody>
-    </table>
-</div>
+        </div> <!-- end card body-->
+    </div> <!-- end card -->
+</div><!-- end col-->

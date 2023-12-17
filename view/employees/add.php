@@ -1,96 +1,121 @@
 <?php
+//Get data from database
+$departments = DepartmentController::getDepartment($connect);
+//Get data from database roles
+$roles = RolesController::getRoles($connect);
+
 if(isset($_POST['add'])){
     
     EmployeeController::addEmployee($connect,$_POST);
     // echo "them thanh cong";
 }
 ?>
-
-<section class="bg-image">
-    <div class="mask d-flex align-items-center gradient-custom-3">
-        <div class="container">
-            <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                    <div class="card">
-                        <div class="card-body p-5">
-                            <h2 class="text-uppercase text-center mb-5">Thông tin</h2>
-                            <form method="POST" action="">
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="ten">First Name:</label>
-                                    <input type="text" name="firstname" class="form-control form-control-lg"
-                                        placeholder="Tên" required />
-                                </div>
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="ten">Last Name:</label>
-                                    <input type="text" name="lastname" class="form-control form-control-lg"
-                                        placeholder="" required />
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="ten">Date of Birth:</label>
-                                    <input type="date" name="birthday" class="form-control form-control-lg"
-                                        placeholder="" required />
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="gender">Gender</label>
-                                    <select id="gender" name="gender" required>
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="phoneNumber">Điện thoại</label>
-                                    <input type="tel" name="phone" class="form-control form-control-lg"
-                                        placeholder="Điện thoại" required />
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="email">Email</label>
-                                    <input type="email" name="email" class="form-control form-control-lg"
-                                        placeholder="Email" required />
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="tinh_thanhpho">Tỉnh/Thành phố</label>
-                                    <select name="city" id="city" class="form-control form-control-lg"
-                                        placeholder="Tỉnh, Thành phố" required></select>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="huyen">Huyện</label>
-                                    <select name="district" id="district" class="form-control form-control-lg"
-                                        placeholder="Huyện" required></select>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="xa">Xã</label>
-                                    <select name="ward" id="ward" class="form-control form-control-lg" placeholder="Xã"
-                                        required></select>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="fullAddress">Ấp, Khu Vực</label>
-                                    <input type="text" name="fullAddress" class="form-control form-control-lg"
-                                        placeholder="Khu vực, ấp" required />
-                                </div>
-
-                                <div class="d-flex justify-content-center">
-                                    <button type="submit" name="add"
-                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Thêm thông
-                                        tin</button>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
+<!-- Form row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="header-title">THÊM NHÂN VIÊN</h4>
             </div>
-        </div>
-    </div>
-</section>
+            <div class="card-body">
+                <form method="POST" action="">
+                    <div class="row g-2">
+                        <div class="mb-3 col-md-6">
+                            <label for="inputEmail4" class="form-label">Tên</label>
+                            <input type="text" name="firstname" class="form-control" id="inputEmail4" placeholder="Tên">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="inputEmail4" class="form-label">Họ</label>
+                            <input type="text" name="lastname" class="form-control" id="inputEmail4" placeholder="Họ">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="inputEmail4" class="form-label">Ngày sinh</label>
+                            <input type="text" class="form-control date" name="birthday" id="birthdatepicker"
+                                data-toggle="date-picker" data-single-date-picker="true">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="inputState" class="form-label">Giới tính</label>
+                            <select id="gender" for="gender" class="form-select" name="gender">
+                                <option value="Nam">Nam</option>
+                                <option value="Nữ">Nữ</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="inputEmail4" class="form-label">Điện thoại</label>
+                            <input type="text" name="phone" class="form-control" id="inputEmail4"
+                                placeholder="Điện thoại">
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="inputEmail4" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="tinh_thanhpho" class="form-label">Tỉnh, Thành phố</label>
+                            <select id="city" class="form-select" name="city">
+                            </select>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="huyen" class="form-label">Quận, Huyện</label>
+                            <select id="district" class="form-select" name="district">
+                            </select>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <label for="xa" class="form-label">Xã, Phường, Thị trấn</label>
+                            <select id="ward" class="form-select" name="ward">
+                            </select>
+                        </div>
+
+                        <div class="mb-3 col-md-12">
+                            <label for="fullAddress" class="form-label">Địa chỉ</label>
+                            <input type="text" name="fullAddress" class="form-control" id="inputEmail4"
+                                placeholder="256 Nguyễn Văn Cừ">
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="department" class="form-label">Phòng ban</label>
+                            <select id="departments" class="form-select" name="departments">
+                                <option value="departments">Chọn</option>
+
+                                <?php
+                                    foreach ($departments as $row): 
+                                ?>
+                                    <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                <?php
+                                          
+                                    endforeach; 
+                                ?>
+
+                            </select>
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="roles" class="form-label">Chức vụ</label>
+                            <select id="roles" class="form-select" name="roles">
+                                <option value="">Chọn</option>
+                                <?php
+                                    foreach ($roles as $row): 
+                                ?>
+                                    <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>
+                                <?php
+                                          
+                                    endforeach; 
+                                ?>
+                            </select>
+                        </div>
+
+                    </div>
+                    <button type="submit" name="add" class="btn btn-primary">Thêm thông tin</button>
+                </form>
+
+            </div> <!-- end card-body -->
+        </div> <!-- end card-->
+    </div> <!-- end col -->
+</div>
+<!-- end row -->
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 

@@ -58,7 +58,7 @@ $user = Authentication::getUser($connect,$_SESSION['userId']);
                     <ul class="nav nav-underline nav-justified gap-0">
                         <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" data-bs-target="#aboutme"
                                 type="button" role="tab" aria-controls="home" aria-selected="true"
-                                href="#aboutme">About</a>
+                                href="#aboutme">Thông tin</a>
                         </li>
                     </ul>
 
@@ -80,7 +80,7 @@ $user = Authentication::getUser($connect,$_SESSION['userId']);
                                         </tr>
 
                                         <tr>
-                                            <th scope="row">Avatar</th>
+                                            <th scope="row">Ảnh địa diện</th>
                                             <td class="ng-binding">
                                                 <img src="<?php echo $avatar; ?>" alt="avatar" class="avatar-md rounded-circle">
                                         </tr>

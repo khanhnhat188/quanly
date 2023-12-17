@@ -48,49 +48,41 @@ require "controller/AuthenticationController.php";
                                             <img src="assets/images/newmen.png" alt="logo" height="22">
                                         </a>
                                         <a href="index.html" class="logo-dark">
-                                            <img src="assets/images/lnewmen.png" alt="dark logo" height="22">
+                                            <img src="assets/images/newmen.png" alt="dark logo" height="22">
                                         </a>
                                     </div>
                                     <div class="p-4 my-auto">
-                                        <h4 class="fs-20">Đăng nhập</h4>
-
-                                        <!-- form -->
+                                        <h4 class="fs-20">ĐĂNG NHẬP</h4>
                                         <form method="POST" action="">
                                             <div class="mb-3">
                                                 <label for="username" class="form-label">Username</label>
                                                 <input class="form-control" type="text" id="username" required=""
-                                                    placeholder="Enter your username" name="username">
+                                                    placeholder="Nhập thông tin tài khoản" name="username">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="password" class="form-label">Mật khẩu</label>
                                                 <input class="form-control" type="password" required="" id="password"
-                                                    placeholder="Enter your password" name="password">
+                                                    placeholder="Nhập mật khẩu" name="password">
                                             </div>
                                             <div class="mb-0 text-start">
                                                 <button class="btn btn-soft-primary w-100" type="submit" name="login"><i
-                                                        class="ri-login-circle-fill me-1"></i> <span class="fw-bold">Log
-                                                        In</span> </button>
+                                                        class="ri-login-circle-fill me-1"></i> <span
+                                                        class="fw-bold">Đăng nhập</span> </button>
                                             </div>
 
-                                            
+
                                         </form>
-                                        <!-- end form-->
                                     </div>
                                 </div>
-                            </div> <!-- end col -->
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- end row -->
             </div>
-            
-            <!-- end row -->
         </div>
-        <!-- end container -->
     </div>
-    <!-- end page -->
 
-    
+
     <!-- Vendor js -->
     <script src="assets/js/vendor.min.js"></script>
 

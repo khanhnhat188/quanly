@@ -17,7 +17,6 @@
 
             <li class="side-nav-title">Main</li>
 
-            
             <li class="side-nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarForms" aria-expanded="false" aria-controls="sidebarForms"
                     class="side-nav-link">
