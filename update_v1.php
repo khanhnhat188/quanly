@@ -1,4 +1,8 @@
 <!-- start page title -->
+<?php
+$user = Authentication::getUser($connect,$_SESSION['userId']);
+var_dump($user);
+?>
 <div class="row">
     <div class="col-sm-12">
         <div class="profile-bg-picture" style="background-image:url('assets/images/bg-profile.jpg')">
@@ -9,10 +13,10 @@
         <div class="profile-user-box">
             <div class="row">
                 <div class="col-sm-6">
-                    <div class="profile-user-img"><img src="assets/images/users/avatar-1.jpg" alt=""
+                    <div class="profile-user-img"><img src="<?php echo $user[0]['image_url']?>" alt=""
                             class="avatar-lg rounded-circle"></div>
                     <div class="">
-                        <h4 class="mt-4 fs-17 ellipsis">Michael A. Franklin</h4>
+                        <h4 class="mt-4 fs-17 ellipsis"><?php echo $user[0]['full_name']?></h4>
                     </div>
                 </div>
         </div>
