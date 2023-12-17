@@ -10,14 +10,6 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="header-title">Danh sách nhân viên</h4>
-                <p class="text-muted mb-0">
-                    DataTables has most features enabled by default, so all you need to do to use it
-                    with your own tables is to call the construction
-                    function:
-                    <code>$().DataTable();</code>. KeyTable provides Excel like cell navigation on
-                    any table. Events (focus, blur, action etc) can be assigned to individual
-                    cells, columns, rows or all cells.
-                </p>
             </div>
             <div class="card-body">
                 <table id="basic-datatable" class="table table-striped dt-responsive nowrap w-100">

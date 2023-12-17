@@ -15,7 +15,6 @@ require "model/department.php";
 require "model/roles.php";
 require "model/authentication.php";
 require "controller/AuthenticationController.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -25,17 +24,12 @@ require "controller/AuthenticationController.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
     <!-- Daterangepicker css -->
     <link rel="stylesheet" href="assets/vendor/daterangepicker/daterangepicker.css">
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
     <!-- Datatables css -->
     <link href="assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet"
@@ -50,18 +44,14 @@ require "controller/AuthenticationController.php";
         type="text/css" />
     <!-- Vector Map css -->
     <link rel="stylesheet" href="assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css">
-
     <!-- Theme Config Js -->
     <script src="assets/js/config.js"></script>
-
     <!-- App css -->
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
-
     <!-- Icons css -->
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="./css/style.css">
-    <title>Quản lý nhân sự</title>
-
+    <title>Quản lý nhân sự NEWMEN</title>
 </head>
 
 <body>
@@ -94,6 +84,9 @@ require "controller/AuthenticationController.php";
         include './view/employees/list_v1.php';
     }elseif($tam == 'employee' && $query == 'detail'){
         include './view/employees/detail.php';
+    //Profile
+    }elseif($tam == 'account' && $query == 'profile'){
+        include './profile.php';
     //Tài khoản
     }elseif($tam == 'account' && $query == 'update'){
         include './update_v2.php';
@@ -110,7 +103,6 @@ require "controller/AuthenticationController.php";
     <?php
     include "footer.php";
     ?>
-
     <!-- Vendor js -->
     <script src="assets/js/vendor.min.js"></script>
     <!-- Datatable Demo Aapp js -->
@@ -118,16 +110,6 @@ require "controller/AuthenticationController.php";
     <!-- Daterangepicker js -->
     <script src="assets/vendor/daterangepicker/moment.min.js"></script>
     <script src="assets/vendor/daterangepicker/daterangepicker.js"></script>
-
-    <!-- Apex Charts js -->
-    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
-
-    <!-- Vector Map js -->
-    <script src="assets/vendor/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js">
-    </script>
-    <script src="assets/vendor/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js">
-    </script>
-
     <!-- Dashboard App js -->
     <script src="assets/js/pages/dashboard.js"></script>
 
@@ -142,7 +124,6 @@ require "controller/AuthenticationController.php";
     <script src="assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
     <script src="assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
     <script src="assets/vendor/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
     <script src="assets/vendor/datatables.net-select/js/dataTables.select.min.js"></script>
 
