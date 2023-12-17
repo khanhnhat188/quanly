@@ -1,6 +1,6 @@
 <?php
 $id = $_SESSION['userId'];
-$user = Authentication::getUser($connect,$_SESSION['userId']);
+$user = Authentication::getUser($connect, $_SESSION['userId']);
 ?>
 <!-- Form row -->
 <div class="row">
@@ -19,26 +19,27 @@ $user = Authentication::getUser($connect,$_SESSION['userId']);
                     if ($row['user_id'] == $id) {
                         $fullname = $row['full_name'];
                         $avatar = $row['image_url'];
-                }
+                    }
                 ?>
-                <form method="POST" action="">
-                    <div class="row g-2">
-                        <div class="mb-3 col-md-6">
-                            <label for="inputEmail4" class="form-label">User ID</label>
-                            <input type="text" name="userId" class="form-control" id="inputEmail4" value="<?php echo $row['user_id'] ?>" readonly>
+                    <form method="POST" action=""enctype="multipart/form-data">
+                        <div class="row g-2">
+                            <div class="mb-3 col-md-6">
+                                <label for="inputEmail4" class="form-label">User ID</label>
+                                <input type="text" name="userId" class="form-control" id="inputEmail4" value="<?php echo $row['user_id'] ?>" readonly>
+                            </div>
+                            <div class="mb-3 col-md-6">
+                                <label for="inputEmail4" class="form-label">Full Name</label>
+                                <input type="text" name="fullname" id="fullname" class="form-control" id="inputEmail4" value="<?php echo $fullname; ?>">
+                            </div>
+
+                            <div class="mb-3 col-md-12">
+                                <label for="file">Chọn Ảnh:</label>
+                                <input type="file" name="file" id="file" accept="image/*">
+                                <br>
+                            </div>
                         </div>
-                        <div class="mb-3 col-md-6">
-                            <label for="inputEmail4" class="form-label">Full Name</label>
-                            <input type="text" name="fullname" id="fullname" class="form-control" id="inputEmail4" value="<?php echo $fullname; ?>">
-                        </div>
-        
-                        <div class="mb-3 col-md-12">
-                            <label for="fullAddress" class="form-label">Chọn ảnh</label>
-                            <input type="file" name="file" id="file" accept="image/*" class="form-control">
-                        </div>
-                    </div>
-                    <button type="submit" name="upload" class="btn btn-primary">Lưu thông tin</button>
-                </form>
+                        <button type="submit" name="upload" class="btn btn-primary">Lưu thông tin</button>
+                    </form>
                 <?php
                 }
                 ?>
@@ -49,5 +50,5 @@ $user = Authentication::getUser($connect,$_SESSION['userId']);
 </div>
 <?php
 if (isset($_POST['upload'])) {
-    AuthenticationController::uploadAvatar($connect, $_POST);
+    AuthenticationController::uploadAvatar($connect,$_POST);
 }

@@ -37,7 +37,7 @@ class Authentication
 
                 // Chờ 1 giây trước khi chuyển hướng
                 sleep(1);
-                echo '<script>window.location.href = "login.php";</script>';
+
                 //chuyển trang thêm dưới này 
             } else {
                 echo '<script type="text/javascript">
@@ -140,7 +140,7 @@ class Authentication
                     // Chờ 1 giây trước khi chuyển hướng
                     sleep(1);
 
-                    echo '<script>window.location.href = "index.php";</script>';
+                    //chuyển trang thêm dưới này 
                 }
             } else {
                 echo '<script type="text/javascript">

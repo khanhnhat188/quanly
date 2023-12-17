@@ -19,7 +19,7 @@ require "controller/AuthenticationController.php";
         <label for="fullname">full name:</label>
         <input type="text" name="fullname" id="fullname" required>
         <label for="file">Chọn Ảnh:</label>
-        <input type="file" name="file" id="file" accept="image/*">s
+        <input type="file" name="file" id="file" accept="image/*">
         <br>
         <input type="submit" name="upload" value="Upload">
     </form>
