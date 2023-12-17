@@ -27,6 +27,8 @@ require "controller/AuthenticationController.php";
     <!-- Daterangepicker css -->
     <link rel="stylesheet" href="assets/vendor/daterangepicker/daterangepicker.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <!-- Datatables css -->
     <link href="assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css" rel="stylesheet"
