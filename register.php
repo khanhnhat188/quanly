@@ -1,8 +1,3 @@
-<?php
-require "config/connect.php";
-require "model/authentication.php";
-require "controller/AuthenticationController.php";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,84 +40,41 @@ require "controller/AuthenticationController.php";
                                             <img src="assets/images/newmen.png" alt="logo" height="22">
                                         </a>
                                         <a href="index.html" class="logo-dark">
-                                            <img src="assets/images/logo-dark.png" alt="dark logo" height="22">
+                                            <img src="assets/images/newmen.png" alt="dark logo" height="22">
                                         </a>
                                     </div>
                                     <div class="p-4 my-auto">
-                                        
-
+                                    <h4 class="fs-20">ĐĂNG KÝ</h4>
                                         <!-- form -->
                                         <form  method="POST" action="#">
                                             <div class="mb-3">
                                                 <label for="fullname" class="form-label">Họ và tên</label>
                                                 <input class="form-control" type="text" id="fullname"
-                                                    placeholder="Enter your name" required="" name="fullname">
+                                                    placeholder="Nhập họ và tên" required="" name="fullname">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="username" class="form-label">Username</label>
                                                 <input class="form-control" type="text" id="username" required=""
-                                                    placeholder="Enter your username" name="username">
+                                                    placeholder="Nhập thông tin username" name="username">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="password" class="form-label">Mật khẩu</label>
                                                 <input class="form-control" type="password" required="" id="password"
-                                                    placeholder="Enter your password" name="password">
+                                                    placeholder="Nhập mật khẩu" name="password">
                                             </div>
-                                            <!-- <div class="mb-3">
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="checkbox-signup">
-                                                    <label class="form-check-label" for="checkbox-signup">I accept <a
-                                                            href="javascript: void(0);" class="text-muted">Terms and
-                                                            Conditions</a></label>
-                                                </div>
-                                            </div> -->
                                             <div class="mb-0 d-grid text-center">
                                                 <button class="btn btn-primary fw-semibold" type="submit" name="register">Đăng ký</button>
                                             </div>
-
-                                            <!-- <div class="text-center mt-4">
-                                                <p class="text-muted fs-16">Sign in with</p>
-                                                <div class="d-flex gap-2 justify-content-center mt-3">
-                                                    <a href="javascript: void(0);" class="btn btn-soft-primary"><i
-                                                            class="ri-facebook-circle-fill"></i></a>
-                                                    <a href="javascript: void(0);" class="btn btn-soft-danger"><i
-                                                            class="ri-google-fill"></i></a>
-                                                    <a href="javascript: void(0);" class="btn btn-soft-info"><i
-                                                            class="ri-twitter-fill"></i></a>
-                                                    <a href="javascript: void(0);" class="btn btn-soft-dark"><i
-                                                            class="ri-github-fill"></i></a>
-                                                </div>
-                                            </div> -->
                                         </form>
-                                        <!-- end form-->
                                     </div>
                                 </div>
-                            </div> <!-- end col -->
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- end row -->
             </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="text-dark-emphasis">Already have account? <a href="auth-login.html"
-                            class="text-dark fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Log In</b></a>
-                    </p>
-                </div> <!-- end col -->
-            </div>
-            <!-- end row -->
         </div>
-        <!-- end container -->
     </div>
-    <!-- end page -->
-
-    <footer class="footer footer-alt fw-medium">
-        <span class="text-dark-emphasis">
-            <script>document.write(new Date().getFullYear())</script> © Velonic - Theme by Techzaa
-        </span>
-    </footer>
-
     <!-- Vendor js -->
     <script src="assets/js/vendor.min.js"></script>
 

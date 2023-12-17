@@ -90,6 +90,9 @@ require "controller/AuthenticationController.php";
     //Tài khoản
     }elseif($tam == 'account' && $query == 'update'){
         include './update.php';
+    //Đăng ký
+    }elseif($tam == 'account' && $query == 'register'){
+        include './register.php';
     }elseif($tam == 'account' && $query == 'logout'){
         include './logout.php';
     }else{

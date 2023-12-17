@@ -66,7 +66,10 @@
                     <ul class="side-nav-second-level">
                         <li>
                             <a href="index.php?action=account&query=profile">Thông tin cá nhân</a>
-                        </li> 
+                        </li>
+                        <li class="side-nav-item">
+                            <a href="index.php?action=account&query=register">Đăng ký</a>
+                        </li>
                         <li>
                             <a href="index.php?action=account&query=logout">Đăng xuất</a>
                         </li>
