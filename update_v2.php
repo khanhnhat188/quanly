@@ -34,7 +34,7 @@ $user = Authentication::getUser($connect,$_SESSION['userId']);
         
                         <div class="mb-3 col-md-12">
                             <label for="fullAddress" class="form-label">Chọn ảnh</label>
-                            <input type="file" class="form-control" name="file" id="file" accept="image/*" id="inputEmail4">
+                            <input type="file" name="file" id="file" accept="image/*" class="form-control">
                         </div>
                     </div>
                     <button type="submit" name="upload" class="btn btn-primary">Lưu thông tin</button>
