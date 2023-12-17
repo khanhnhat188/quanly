@@ -42,7 +42,7 @@ require "controller/AuthenticationController.php";
                                 <div class="d-flex flex-column h-100">
                                     <div class="auth-brand p-4">
                                         <a href="index.html" class="logo-light">
-                                            <img src="assets/images/logo.png" alt="logo" height="22">
+                                            <img src="assets/images/newmen.png" alt="logo" height="22">
                                         </a>
                                         <a href="index.html" class="logo-dark">
                                             <img src="assets/images/logo-dark.png" alt="dark logo" height="22">

@@ -45,14 +45,14 @@ require "controller/AuthenticationController.php";
                                 <div class="d-flex flex-column h-100">
                                     <div class="auth-brand p-4">
                                         <a href="index.html" class="logo-light">
-                                            <img src="assets/images/logo.png" alt="logo" height="22">
+                                            <img src="assets/images/newmen.png" alt="logo" height="22">
                                         </a>
                                         <a href="index.html" class="logo-dark">
-                                            <img src="assets/images/logo-dark.png" alt="dark logo" height="22">
+                                            <img src="assets/images/lnewmen.png" alt="dark logo" height="22">
                                         </a>
                                     </div>
                                     <div class="p-4 my-auto">
-                                        <h4 class="fs-20">Sign In</h4>
+                                        <h4 class="fs-20">Đăng nhập</h4>
 
                                         <!-- form -->
                                         <form method="POST" action="">
@@ -62,7 +62,7 @@ require "controller/AuthenticationController.php";
                                                     placeholder="Enter your username" name="username">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="password" class="form-label">Password</label>
+                                                <label for="password" class="form-label">Mật khẩu</label>
                                                 <input class="form-control" type="password" required="" id="password"
                                                     placeholder="Enter your password" name="password">
                                             </div>

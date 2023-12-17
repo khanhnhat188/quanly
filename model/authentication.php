@@ -139,8 +139,7 @@ class Authentication
 
                     // Chờ 1 giây trước khi chuyển hướng
                     sleep(1);
-
-                    //chuyển trang thêm dưới này 
+                    echo '<script>window.location.href = "index.php?action=account&query=profile";</script>';
                 }
             } else {
                 echo '<script type="text/javascript">
