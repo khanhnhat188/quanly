@@ -4,7 +4,7 @@
             <div class="col-12 text-center">
                 <script>
                 document.write(new Date().getFullYear())
-                </script> © Velonic - Công ty <b>Techzaa</b>
+                </script> - <a href="#" target="_blank">CÔNG TY GIÀY NEWMEN</a>.
             </div>
         </div>
     </div>

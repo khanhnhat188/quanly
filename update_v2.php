@@ -8,10 +8,6 @@ $user = Authentication::getUser($connect,$_SESSION['userId']);
         <div class="card">
             <div class="card-header">
                 <h4 class="header-title">Thông tin tài khoản</h4>
-                <p class="text-muted mb-0">
-                    By adding <code>.row</code> & <code>.g-2</code>, you can have control over the
-                    gutter width in as well the inline as block direction.
-                </p>
             </div>
             <div class="card-body">
                 <?php
@@ -21,7 +17,7 @@ $user = Authentication::getUser($connect,$_SESSION['userId']);
                         $avatar = $row['image_url'];
                 }
                 ?>
-                <form method="POST" action="">
+                <form method="POST" action="" enctype="multipart/form-data">
                     <div class="row g-2">
                         <div class="mb-3 col-md-6">
                             <label for="inputEmail4" class="form-label">User ID</label>

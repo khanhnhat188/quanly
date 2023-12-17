@@ -4,12 +4,8 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="mb-4 mt-4 text-center">
-                        <h3 class="">CHÀO MỪNG ĐẾN VỚI TRANG QUẢN TRỊ <span class="text-primary">TÊN CÔNG TY</span></h3>
-                        <p class="text-muted mt-3">
-                            Do you have a question about your subscription, a recent order, products, shipping or you
-                            want to suggest a new magazine? Here you can find some helpful answers to frequently asked
-                            questions (FAQ).
-                        </p>
+                        <h3 class="">CHÀO MỪNG ĐẾN VỚI TRANG QUẢN TRỊ NHÂN VIÊN <span class="text-primary">NEWMEN</span></h3>
+                       
                     </div>
                 </div><!-- end col -->
             </div><!-- end row -->
@@ -28,7 +24,7 @@
                                             is used as a placeholder in magazine layouts, for example, in order to give
                                             an impression of the finished document.</p>
                                     </div>
-                                </div> <!-- end col -->
+                                </div>
                                 <div class="col-md-4">
                                     <div>
                                         <div class="faq-question-q-box">Q.</div>
@@ -38,7 +34,7 @@
                                             unsubscribe from the newsletter at any time. Subscribe here to our
                                             newsletter.</p>
                                     </div>
-                                </div> <!-- end col -->
+                                </div>
                                 <div class="col-md-4">
                                     <div>
                                         <div class="faq-question-q-box">Q.</div>
@@ -47,7 +43,7 @@
                                             you can edit both addresses (for billing and shipping) in your customer
                                             account.</p>
                                     </div>
-                                </div> <!-- end col -->
+                                </div>
                                 <div class="col-md-4">
                                     <div>
                                         <div class="faq-question-q-box">Q.</div>
@@ -56,7 +52,7 @@
                                             a retailer, we buy all magazines from their publishers at the regular trade
                                             price. However, you could contact the publisher directly.</p>
                                     </div>
-                                </div> <!-- end col -->
+                                </div>
                                 <div class="col-md-4">
                                     <div>
                                         <div class="faq-question-q-box">Q.</div>
@@ -67,7 +63,7 @@
                                             magazines from countries such as Australia, the USA and the United Kingdom.
                                         </p>
                                     </div>
-                                </div> <!-- end col -->
+                                </div>
                                 <div class="col-md-4">
                                     <div>
                                         <div class="faq-question-q-box">Q.</div>
@@ -78,11 +74,10 @@
                                             magazines from countries such as Australia, the USA and the United Kingdom.
                                         </p>
                                     </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end-row -->
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

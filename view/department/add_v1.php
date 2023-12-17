@@ -8,10 +8,6 @@ if (isset($_POST['add'])) {
         <div class="card">
             <div class="card-header">
                 <h4 class="header-title">THÊM PHÒNG BAN</h4>
-                <p class="text-muted mb-0">Here a quick example to demonstrate Bootstrap form
-                    styles. Keep reading for documentation on required classes, form layout, and
-                    more.
-                </p>
             </div>
             <div class="card-body">
                 <form action="" method="post">

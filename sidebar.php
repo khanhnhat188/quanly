@@ -1,4 +1,3 @@
-<!-- ========== Left Sidebar Start ========== -->
 <div class="leftside-menu">
 
     <!-- Brand Logo Light -->
@@ -92,4 +91,3 @@
         <div class="clearfix"></div>
     </div>
 </div>
-<!-- ========== Left Sidebar End ========== -->

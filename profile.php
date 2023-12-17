@@ -23,7 +23,7 @@ $user = Authentication::getUser($connect,$_SESSION['userId']);
                             }
 
                         ?>
-                    <div class="profile-user-img"><img src="./assets/images/users/<?php echo $avatar; ?>" alt=""
+                    <div class="profile-user-img"><img src="<?php echo $avatar; ?>" alt="user-img"
                             class="avatar-lg rounded-circle"></div>
                     <div class="">
 
@@ -82,7 +82,7 @@ $user = Authentication::getUser($connect,$_SESSION['userId']);
                                         <tr>
                                             <th scope="row">Avatar</th>
                                             <td class="ng-binding">
-                                                <img src="./assets/images/users/<?php echo $avatar; ?>" alt="avatar" class="avatar-md rounded-circle">
+                                                <img src="<?php echo $avatar; ?>" alt="avatar" class="avatar-md rounded-circle">
                                         </tr>
                                     </tbody>
                                 </table>

@@ -53,9 +53,6 @@ require "controller/AuthenticationController.php";
                                     </div>
                                     <div class="p-4 my-auto">
                                         <h4 class="fs-20">Sign In</h4>
-                                        <p class="text-muted mb-3">Enter your email address and password to access
-                                            account.
-                                        </p>
 
                                         <!-- form -->
                                         <form method="POST" action="">

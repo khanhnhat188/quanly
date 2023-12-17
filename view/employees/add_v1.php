@@ -15,11 +15,7 @@ if(isset($_POST['add'])){
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="header-title">Form Row</h4>
-                <p class="text-muted mb-0">
-                    By adding <code>.row</code> & <code>.g-2</code>, you can have control over the
-                    gutter width in as well the inline as block direction.
-                </p>
+                <h4 class="header-title">THÊM NHÂN VIÊN</h4>
             </div>
             <div class="card-body">
                 <form method="POST" action="">

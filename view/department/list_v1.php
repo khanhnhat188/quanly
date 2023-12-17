@@ -11,10 +11,6 @@ if (isset($_POST['delete_id'])) {
     <div class="card">
         <div class="card-header">
             <h4 class="header-title">DANH SÁCH PHÒNG BAN</h4>
-            <p class="text-muted mb-0">
-                Use <code>.table-striped</code> to add zebra-striping to any table row
-                within the <code>&lt;tbody&gt;</code>.
-            </p>
         </div>
         <div class="card-body">
             <div class="table-responsive-sm">
