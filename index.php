@@ -22,6 +22,8 @@ require "controller/AuthenticationController.php";
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <!-- Daterangepicker css -->
     <link rel="stylesheet" href="assets/vendor/daterangepicker/daterangepicker.css">
 

@@ -1,3 +1,8 @@
+<?php
+require "config/connect.php";
+require "model/authentication.php";
+require "controller/AuthenticationController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +13,7 @@
     <meta content="A fully responsive admin theme which can be used to build CRM, CMS,ERP etc." name="description" />
     <meta content="Techzaa" name="author" />
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
 
@@ -43,28 +49,26 @@
                                         </a>
                                     </div>
                                     <div class="p-4 my-auto">
-                                        <h4 class="fs-20">Free Sign Up</h4>
-                                        <p class="text-muted mb-3">Enter your email address and password to access
-                                            account.</p>
+                                        
 
                                         <!-- form -->
-                                        <form action="#">
+                                        <form  method="POST" action="#">
                                             <div class="mb-3">
                                                 <label for="fullname" class="form-label">Full Name</label>
                                                 <input class="form-control" type="text" id="fullname"
-                                                    placeholder="Enter your name" required="">
+                                                    placeholder="Enter your name" required="" name="fullname">
                                             </div>
                                             <div class="mb-3">
-                                                <label for="emailaddress" class="form-label">Email address</label>
-                                                <input class="form-control" type="email" id="emailaddress" required=""
-                                                    placeholder="Enter your email">
+                                                <label for="username" class="form-label">Username</label>
+                                                <input class="form-control" type="text" id="username" required=""
+                                                    placeholder="Enter your username" name="username">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="password" class="form-label">Password</label>
                                                 <input class="form-control" type="password" required="" id="password"
-                                                    placeholder="Enter your password">
+                                                    placeholder="Enter your password" name="password">
                                             </div>
-                                            <div class="mb-3">
+                                            <!-- <div class="mb-3">
                                                 <div class="form-check">
                                                     <input type="checkbox" class="form-check-input"
                                                         id="checkbox-signup">
@@ -72,13 +76,13 @@
                                                             href="javascript: void(0);" class="text-muted">Terms and
                                                             Conditions</a></label>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="mb-0 d-grid text-center">
-                                                <button class="btn btn-primary fw-semibold" type="submit">Sign
+                                                <button class="btn btn-primary fw-semibold" type="submit" name="register">Sign
                                                     Up</button>
                                             </div>
 
-                                            <div class="text-center mt-4">
+                                            <!-- <div class="text-center mt-4">
                                                 <p class="text-muted fs-16">Sign in with</p>
                                                 <div class="d-flex gap-2 justify-content-center mt-3">
                                                     <a href="javascript: void(0);" class="btn btn-soft-primary"><i
@@ -90,7 +94,7 @@
                                                     <a href="javascript: void(0);" class="btn btn-soft-dark"><i
                                                             class="ri-github-fill"></i></a>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </form>
                                         <!-- end form-->
                                     </div>
@@ -129,3 +133,8 @@
 </body>
 
 </html>
+
+<?php
+if(isset($_POST['register'])){
+    AuthenticationController::register($connect,$_POST);
+}

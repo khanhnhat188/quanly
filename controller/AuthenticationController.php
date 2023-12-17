@@ -7,4 +7,8 @@ class AuthenticationController{
     public static function signIn($connect,$post){
         return Authentication::signIn($connect,$post);
     }
+
+    public static function uploadAvatar($connect,$post){
+        return Authentication::uploadAvatar($connect,$post);
+    }
 }

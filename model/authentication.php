@@ -6,17 +6,50 @@ class Authentication
         $fullname = $post['fullname'];
         $username = $post['username'];
         $password = password_hash($post['password'], PASSWORD_BCRYPT);
-        $avatar = $post['avatar'];
         $response = mysqli_query($connect, "SELECT * FROM `employee_management`.`users` WHERE `user_name` = '$username'");
         if (mysqli_num_rows($response) > 0) {
-            echo "Tài khoản đã tồn tại ở hệ thống";
+            echo '<script type="text/javascript">
+            Swal.fire({
+                title: "Tài khoản đã tồn tại ở hệ thống",
+                icon: "error",
+                timer: 1000,
+                timerProgressBar: true,
+                showConfirmButton: false,
+                
+            });
+            </script>';
         } else {
-            $query = "INSERT INTO `employee_management`.`users` (`full_name`, `user_name`, `password`, `image_url`) VALUES ('$fullname', '$username', '$password', '$avatar')";
+            $query = "INSERT INTO `employee_management`.`users` (`full_name`, `user_name`, `password`) VALUES ('$fullname', '$username', '$password')";
             $request = mysqli_query($connect, $query);
             if ($request) {
-                echo "Đăng kí thành công";
+                echo '<script type="text/javascript">
+                Swal.fire({
+                    title: "Đăng kí tài khoản thành công",
+                    icon: "success",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    
+                });
+                </script>';
+                ob_flush();
+                flush();
+
+                // Chờ 1 giây trước khi chuyển hướng
+                sleep(1);
+
+                //chuyển trang thêm dưới này 
             } else {
-                echo "Thất bại";
+                echo '<script type="text/javascript">
+                Swal.fire({
+                    title: "Đăng kí thất bại",
+                    icon: "error",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    
+                });
+                </script>';
             }
         }
     }
@@ -32,12 +65,93 @@ class Authentication
             $data = mysqli_fetch_array($request);
             $hashpass = $data[0];
             if ($hashpass !== null && password_verify($password, $hashpass)) {
-                echo "Đăng nhập thành công";
+                setcookie('user', $username . $hashpass, time() + 3600, "/");
+                echo '<script type="text/javascript">
+                Swal.fire({
+                    title: "Đăng nhập thành công",
+                    icon: "success",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    
+                });
+                </script>';
+                ob_flush();
+                flush();
+
+                // Chờ 1 giây trước khi chuyển hướng
+                sleep(1);
+
+                //chuyển trang thêm dưới này 
+
             } else {
-                echo "Mật khẩu không chính xác";
+                echo '<script type="text/javascript">
+                Swal.fire({
+                    title: "Tài khoản hoặc mật khẩu không đúng",
+                    icon: "error",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    
+                });
+                </script>';
             }
         } else {
-            echo "thất bại";
+            echo '<script type="text/javascript">
+                Swal.fire({
+                    title: "Đăng nhập thất bại",
+                    icon: "error",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    
+                });
+                </script>';
+        }
+    }
+
+    public static function uploadAvatar($connect, $post)
+    {
+        if (isset($post['upload'])) {
+            $userId = $post['userId'];
+            $fullname = $post['fullname'];
+            $directory = "assets/avatar/";
+            $targetFile = $directory . time() . "." . pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
+            if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
+
+                $query = "UPDATE `employee_management`.`users` SET `full_name`='$fullname', `image_url`='$targetFile' WHERE  `user_id`='$userId'";
+                $request = mysqli_query($connect, $query);
+                if ($request) {
+                    echo '<script type="text/javascript">
+                Swal.fire({
+                    title: "Cập nhật thông tin thành công",
+                    icon: "success",
+                    timer: 1000,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    
+                });
+                </script>';
+                    ob_flush();
+                    flush();
+
+                    // Chờ 1 giây trước khi chuyển hướng
+                    sleep(1);
+
+                    //chuyển trang thêm dưới này 
+                }
+            } else {
+                echo '<script type="text/javascript">
+                    Swal.fire({
+                        title: "Cập nhật thông tin thất bại",
+                        icon: "error",
+                        timer: 1000,
+                        timerProgressBar: true,
+                        showConfirmButton: false,
+                        
+                    });
+                    </script>';
+            }
         }
     }
 }

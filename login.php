@@ -1,3 +1,9 @@
+<?php
+ob_start();
+require "config/connect.php";
+require "model/authentication.php";
+require "controller/AuthenticationController.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully responsive admin theme which can be used to build CRM, CMS,ERP etc." name="description" />
     <meta content="Techzaa" name="author" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico">
@@ -48,47 +55,24 @@
                                         </p>
 
                                         <!-- form -->
-                                        <form action="#">
+                                        <form method="POST" action="">
                                             <div class="mb-3">
-                                                <label for="emailaddress" class="form-label">Email address</label>
-                                                <input class="form-control" type="email" id="emailaddress" required=""
-                                                    placeholder="Enter your email">
+                                                <label for="username" class="form-label">Username</label>
+                                                <input class="form-control" type="text" id="username" required=""
+                                                    placeholder="Enter your username" name="username">
                                             </div>
                                             <div class="mb-3">
-                                                <a href="auth-forgotpw.html" class="text-muted float-end"><small>Forgot
-                                                        your
-                                                        password?</small></a>
                                                 <label for="password" class="form-label">Password</label>
                                                 <input class="form-control" type="password" required="" id="password"
-                                                    placeholder="Enter your password">
-                                            </div>
-                                            <div class="mb-3">
-                                                <div class="form-check">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="checkbox-signin">
-                                                    <label class="form-check-label" for="checkbox-signin">Remember
-                                                        me</label>
-                                                </div>
+                                                    placeholder="Enter your password" name="password">
                                             </div>
                                             <div class="mb-0 text-start">
-                                                <button class="btn btn-soft-primary w-100" type="submit"><i
+                                                <button class="btn btn-soft-primary w-100" type="submit" name="login"><i
                                                         class="ri-login-circle-fill me-1"></i> <span class="fw-bold">Log
                                                         In</span> </button>
                                             </div>
 
-                                            <div class="text-center mt-4">
-                                                <p class="text-muted fs-16">Sign in with</p>
-                                                <div class="d-flex gap-2 justify-content-center mt-3">
-                                                    <a href="javascript: void(0);" class="btn btn-soft-primary"><i
-                                                            class="ri-facebook-circle-fill"></i></a>
-                                                    <a href="javascript: void(0);" class="btn btn-soft-danger"><i
-                                                            class="ri-google-fill"></i></a>
-                                                    <a href="javascript: void(0);" class="btn btn-soft-info"><i
-                                                            class="ri-twitter-fill"></i></a>
-                                                    <a href="javascript: void(0);" class="btn btn-soft-dark"><i
-                                                            class="ri-github-fill"></i></a>
-                                                </div>
-                                            </div>
+                                            
                                         </form>
                                         <!-- end form-->
                                     </div>
@@ -99,24 +83,14 @@
                 </div>
                 <!-- end row -->
             </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <p class="text-dark-emphasis">Don't have an account? <a href="auth-register.html"
-                            class="text-dark fw-bold ms-1 link-offset-3 text-decoration-underline"><b>Sign up</b></a>
-                    </p>
-                </div> <!-- end col -->
-            </div>
+            
             <!-- end row -->
         </div>
         <!-- end container -->
     </div>
     <!-- end page -->
 
-    <footer class="footer footer-alt fw-medium">
-        <span class="text-dark">
-            <script>document.write(new Date().getFullYear())</script> © Velonic - Theme by Techzaa
-        </span>
-    </footer>
+    
     <!-- Vendor js -->
     <script src="assets/js/vendor.min.js"></script>
 
@@ -126,3 +100,8 @@
 </body>
 
 </html>
+<?php
+if(isset($_POST['login'])){
+    AuthenticationController::signIn($connect,$_POST);
+}
+ob_end_flush(); 
