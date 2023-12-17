@@ -85,6 +85,9 @@ require "controller/AuthenticationController.php";
         include './view/employees/list_v1.php';
     }elseif($tam == 'employee' && $query == 'detail'){
         include './view/employees/detail.php';
+    //Tài khoản
+    }elseif($tam == 'account' && $query == 'update'){
+        include './update_v1.php';
     }else{
         include 'home.php';
     }
