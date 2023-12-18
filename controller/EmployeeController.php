@@ -10,6 +10,13 @@ class EmployeeController
         return $data;
     }
 
+    public static function getEmployeeById($connect,$id)
+    {
+
+        $data = Employee::getEmployeeById($connect,$id);
+        return $data;
+    }
+
     public static function addEmployee($connect, $post)
     {
         return Employee::addEmployee($connect,$post);

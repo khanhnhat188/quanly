@@ -2,7 +2,8 @@
     $department = DepartmentController::getDepartment($connect);
     $roles = RolesController::getRoles($connect);
     $id = $_GET['id'];
-    $employees = EmployeeController::getEmployee($connect);
+    $employees = EmployeeController::getEmployeeById($connect,$id);
+    var_dump($employees);
 
 ?>
 

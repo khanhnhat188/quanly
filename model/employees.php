@@ -4,7 +4,19 @@ class Employee
 {
     public static function getEmployee($connect)
     {
-        $response = mysqli_query($connect, "SELECT * FROM `employee_management`.`employees` ORDER BY `id` DESC");
+        $response = mysqli_query($connect, "SELECT * FROM `employee_management`.`employees` INNER JOIN `employee_management`.`roles` ON `employees`.`roles` = `roles`.`id`  ORDER BY `employees`.`id` DESC");
+        if ($response) {
+            if (mysqli_num_rows($response) > 0) {
+                while ($row = mysqli_fetch_array($response)) {
+                    $data[] = $row;
+                }
+            }
+        }
+        return $data;
+    }
+
+    public static function getEmployeeById($connect,$id){
+        $response = mysqli_query($connect, "SELECT * FROM `employee_management`.`employees` INNER JOIN `employee_management`.`roles` ON `employees`.`roles` = `roles`.`id`  WHERE `employees`.`id`= '$id'");
         if ($response) {
             if (mysqli_num_rows($response) > 0) {
                 while ($row = mysqli_fetch_array($response)) {
