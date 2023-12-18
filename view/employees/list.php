@@ -40,7 +40,7 @@
                                 <a href="?action=employee&query=edit&id=<?php echo $row['id']; ?>" class=" ri-pencil-line"></a>
                             </td>
                             <td>
-                                <a href="?action=employee&query=detail&id=<?php echo $row['id']; ?>" class=" ri-eye-line"></a>
+                                <a href="?action=employee&query=detail&id=<?php echo $row[`employess`.'id']; ?>" class=" ri-eye-line"></a>
                             <td>
                                 <form  class ="" action="" method="post" onsubmit="return confirm('Are you sure you want to delete this department?');">
                                     <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">

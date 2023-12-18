@@ -4,7 +4,7 @@ class Employee
 {
     public static function getEmployee($connect)
     {
-        $response = mysqli_query($connect, "SELECT * FROM `employee_management`.`employees` INNER JOIN `employee_management`.`roles` ON `employees`.`roles` = `roles`.`id`  ORDER BY `employees`.`id` DESC");
+        $response = mysqli_query($connect, "SELECT * FROM `employee_management`.`employees` ORDER BY `employees`.`id` DESC");
         if ($response) {
             if (mysqli_num_rows($response) > 0) {
                 while ($row = mysqli_fetch_array($response)) {
@@ -16,11 +16,14 @@ class Employee
     }
 
     public static function getEmployeeById($connect,$id){
-        $response = mysqli_query($connect, "SELECT * FROM `employee_management`.`employees` INNER JOIN `employee_management`.`roles` ON `employees`.`roles` = `roles`.`id`  WHERE `employees`.`id`= '$id'");
+        
+        $query = "SELECT * FROM `employee_management`.`employees` INNER JOIN `employee_management`.`roles` ON `employees`.`roles` = `roles`.`id`  WHERE `employees`.`id`= '$id'";
+        $response = mysqli_query($connect, $query);
         if ($response) {
             if (mysqli_num_rows($response) > 0) {
                 while ($row = mysqli_fetch_array($response)) {
                     $data[] = $row;
+                    
                 }
             }
         }
