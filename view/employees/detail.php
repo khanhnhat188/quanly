@@ -33,7 +33,6 @@ $employees = EmployeeController::getEmployeeById($connect, $id);
                 $ward = $row['ward'];
                 $fullAddress = $row['full_address'];
                 $roles = $row['name'];
-
                 ?>
                 <div class="col-sm-12">
                     <div class="profile-user-img"><img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-lg rounded-circle"></div>
@@ -123,8 +122,6 @@ $employees = EmployeeController::getEmployeeById($connect, $id);
                                                 ?>
                                             </td>
                                         </tr>
-
-
                                     </tbody>
                                 </table>
                             </div>
